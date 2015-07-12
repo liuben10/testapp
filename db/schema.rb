@@ -11,20 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711213523) do
+ActiveRecord::Schema.define(version: 20150711225447) do
 
   create_table "quests", force: true do |t|
     t.string   "name"
-    t.text     "description"
+    t.string   "description"
     t.integer  "rating"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "quests", ["user_id"], name: "index_quests_on_user_id"
+
   create_table "users", force: true do |t|
     t.string   "username"
     t.string   "password"
-    t.text     "description"
+    t.integer  "age"
+    t.integer  "rating"
+    t.string   "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
