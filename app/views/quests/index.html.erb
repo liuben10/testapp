@@ -1,0 +1,36 @@
+<h1>Listing quests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Rating</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quests.each do |quest| %>
+      <tr>
+        <td><%= quest.name %></td>
+        <td><%= quest.description %></td>
+        <td><%= quest.rating %></td>
+        <td><%= quest.user %></td>
+        <td><%= link_to 'Show', [quest.user, quest] %></td>
+    	<!-- /posts/:post_id/comments/:id/edit -->
+    	<td><%= link_to 'Edit', edit_user_quest_path(quest.user, quest)%></td>
+    	<!-- /posts/:post_id/comments/:id -->
+   		 <td><%= link_to 'Destroy', [quest.user, quest], :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>	
+  </tbody>
+</table>
+
+<%= link_to 'New Quest', new_user_quest_path(@user) %>
+
+
+
+<br>
+
