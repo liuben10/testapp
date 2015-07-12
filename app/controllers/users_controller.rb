@@ -11,10 +11,6 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
   end
-  
-  def quest_path
-    
-  end
 
   # GET /users/new
   def new
@@ -59,7 +55,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
+    @user.destroy or not_found
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
@@ -69,7 +65,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find(params[:id]) 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

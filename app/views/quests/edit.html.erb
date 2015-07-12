@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @quest %> |
-<%= link_to 'Back', user_quests %>
+<%= link_to 'Show', [@quest.user, @quest] %> 
+<%= link_to 'Back', user_quests_path(@quest.user) %>
