@@ -21,7 +21,6 @@ class QuestsControllerTest < ActionController::TestCase
     assert_difference('Quest.count') do
       post :create, user_id: @user.id, quest: { description: @quest.description, name: @quest.name, rating: @quest.rating, user_id: @quest.user_id }
     end
-
   end
 
   test "should show quest" do
@@ -43,7 +42,6 @@ class QuestsControllerTest < ActionController::TestCase
     assert_difference('Quest.count', -1) do
       delete :destroy, user_id: @user.id, id: @quest
     end
-
     #assert_redirected_to user_quests_path
   end
 end

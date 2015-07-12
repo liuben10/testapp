@@ -4,10 +4,5 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   
-def action_404
-  # here the code
-
-  render :status => 404
-end
   
 end
